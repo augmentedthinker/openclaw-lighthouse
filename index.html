@@ -1,97 +1,28 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OpenClaw Lighthouse</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #081018;
-      --card: #101b27;
-      --ink: #f3efe4;
-      --muted: #b8c3cc;
-      --accent: #ff7a45;
-      --line: #263747;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #173047 0, #081018 42rem);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-    main { max-width: 920px; margin: 0 auto; padding: 48px 20px 72px; }
-    .hero { padding: 36px; border: 1px solid var(--line); border-radius: 28px; background: rgba(16, 27, 39, .78); box-shadow: 0 24px 80px rgba(0,0,0,.28); }
-    .badge { display: inline-flex; gap: .5rem; align-items: center; color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .78rem; }
-    h1 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: .95; margin: 18px 0; }
-    h2 { margin-top: 36px; color: #ffd1bd; }
-    p, li { color: var(--muted); }
-    strong { color: var(--ink); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
-    .card { border: 1px solid var(--line); border-radius: 20px; padding: 20px; background: rgba(255,255,255,.035); }
-    .card h3 { margin-top: 0; color: var(--ink); }
-    code { background: #07111a; border: 1px solid var(--line); padding: .15rem .35rem; border-radius: .35rem; color: #ffd1bd; }
-    footer { margin-top: 40px; color: #81909c; font-size: .95rem; }
-  </style>
-</head>
-<body>
-  <main>
-    <section class="hero">
-      <div class="badge">🦞 OpenClaw Lighthouse</div>
-      <h1>A calm workbench for smaller minds and clearer artifacts.</h1>
-      <p>
-        Christopher and OpenClaw use this repo as a second workspace: a place for pages, notes,
-        decisions, and artifacts that can be opened from Telegram without dragging a whole chat
-        transcript behind them.
-      </p>
-    </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenClaw Lighthouse</title>
+    <link rel="stylesheet" href="workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="./"><span aria-hidden="true">🗼</span><span>OpenClaw Lighthouse</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="./" aria-current="page">Home</a>
+          <a class="workshop-link" href="artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="notes.html">Notes</a>
+          <a class="workshop-link" href="markdowns.html">Markdowns</a>
+        </div>
+      </nav>
 
-    <h2>How we make this work with free-tier Gemini / lighter models</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>1. Shrink the boot context</h3>
-        <p>Keep startup files short. Put durable detail in linked files, and load only the one needed for the task.</p>
-      </article>
-      <article class="card">
-        <h3>2. Use file-shaped memory</h3>
-        <p>Prefer small Markdown files like <code>context/PROJECT.md</code>, <code>artifacts/name.md</code>, and checklists over long conversational state.</p>
-      </article>
-      <article class="card">
-        <h3>3. Give one job at a time</h3>
-        <p>For weaker models, avoid broad fuzzy asks. Use: goal, inputs, constraints, output format, verification step.</p>
-      </article>
-      <article class="card">
-        <h3>4. Make outputs visible</h3>
-        <p>When something matters, publish it here as a page or Markdown artifact so Christopher can read it online.</p>
-      </article>
-      <article class="card">
-        <h3>5. Keep tool calls simple</h3>
-        <p>Use repeatable scripts and checklists. Let the repo carry structure so the model carries less.</p>
-      </article>
-      <article class="card">
-        <h3>6. Reserve heavy thinking</h3>
-        <p>Use the strongest brain only for architecture, debugging, and compression. Let cheaper models execute prepared steps.</p>
-      </article>
+      <main class="hero center">
+        <span class="lobster" aria-hidden="true">🗼</span>
+        <h1>OpenClaw</h1>
+        <p class="lede">Christopher and OpenClaw: a Gemini-focused lighthouse for experiments, artifacts, memory, and becoming useful on purpose.</p>
+      </main>
     </div>
-
-    <h2>Current setup notes</h2>
-    <p>
-      Gemini migration context is tracked in
-      <a href="context/GEMINI_SETUP.md" style="color:#ffd1bd">context/GEMINI_SETUP.md</a>.
-    </p>
-
-    <h2>Boot pattern</h2>
-    <p>
-      On startup, OpenClaw should remember: this repo is the default external workbench.
-      If a Telegram conversation needs a shareable artifact, create or update a file here,
-      commit it, push it, and send Christopher the link.
-    </p>
-
-    <footer>
-      Built as a first landing page. Simple on purpose: less ceremony, more clarity.
-    </footer>
-  </main>
-</body>
+  </body>
 </html>
